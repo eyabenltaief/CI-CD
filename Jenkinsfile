@@ -46,13 +46,12 @@ pipeline {
     
     
     
-    stage("Docker Build & Push"){
+    stage("Docker Build"){
         steps{
             script{
                withDockerRegistry(credentialsId: 'dockerhub', toolName: 'docker') {
                     sh "docker build -t image1 . "
                     sh "docker tag image1 eyabenltaief/pet-clinic:latest "
-                    sh "docker push eyabenltaief/pet-clinic:latest "
                 }
             }
         }
@@ -69,6 +68,17 @@ pipeline {
         steps {
             sh 'python DefectDojo.py'
     }
+    }
+
+
+     stage("Docker Push"){
+        steps{
+            script{
+               withDockerRegistry(credentialsId: 'dockerhub', toolName: 'docker') {
+                    sh "docker push eyabenltaief/pet-clinic:latest "
+                }
+            }
+        }
     }
 
     }    
