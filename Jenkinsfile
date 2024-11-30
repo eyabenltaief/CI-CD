@@ -66,7 +66,8 @@ pipeline {
  
     stage('Upload Report to DefectDojo') {
         steps {
-            sh 'python DefectDojo.py'
+            s 'pip install requests'
+            sh 'python /home/eya/API-DefectDojo/DefectDojo.py'
     }
     }
 
