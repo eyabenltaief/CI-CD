@@ -1,5 +1,6 @@
 # Spring PetClinic Sample Application  
 
+Spring Petclinic is a Spring Boot application built using Maven or Gradle. 
 This project allows the Spring community to maintain a Petclinic version with a plain old **Spring Framework configuration**
 and with a **3-layer architecture** (i.e. presentation --> service --> repository).
 
